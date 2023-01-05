@@ -1,0 +1,17 @@
+# controllers:
+#     resource: ../../src/Controller/
+#     type: annotation
+#
+# kernel:
+#     resource: ../../src/Kernel.php
+#     type: annotation
+
+
+homepage:
+    path: /hom
+    controller: App\Controller\VinyController::home
+
+browser:
+   path: /browse/{slug}
+   controller: App\Controller\VinyController::browse
+   
