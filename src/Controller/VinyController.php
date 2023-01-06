@@ -21,11 +21,11 @@ class VinyController
     /**
      * @Route("/browse/{slug}", name="homepage")
      */
-    public function browse(string $slug): Response
+    public function browse(string $slug =null): Response
     {
 
       if($slug){
-        $title= 'habibi: '.str_replace('-',' ',$slug);
+        $title= 'test'.str_replace('-',' ',$slug);
       }
       else {
         $title='Inshallah we will marry';

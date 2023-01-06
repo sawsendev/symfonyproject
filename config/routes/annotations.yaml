@@ -12,6 +12,5 @@ homepage:
     controller: App\Controller\VinyController::home
 
 browser:
-   path: /browse/{slug}
+   path: /browse/{slug?}
    controller: App\Controller\VinyController::browse
-   
