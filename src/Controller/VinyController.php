@@ -2,34 +2,38 @@
 
 
 namespace App\Controller;
-// use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class VinyController
+class VinyController extends AbstractController
 {
 
-  // #[Route('/home')] en symfony 6
+    // #[Route('/')]
+    public function home(): Response
+      {
+        $tracks=['dei frau','der man','ich','du'];
 
-      /**
-       * @Route("/", name="homepage")
-       */
-  public function home(): Response
-    {
-        return new Response('title:bb james');
-    }
-    /**
-     * @Route("/browse/{slug}", name="homepage")
-     */
-    public function browse(string $slug =null): Response
-    {
+          //dd($tracks);
+        return $this->render('viny/home.html.twig',[
+            'title'=>'Hob allah',
+            'tracks'=>$tracks,
 
-      if($slug){
-        $title= 'test'.str_replace('-',' ',$slug);
+          ]);
+
       }
-      else {
-        $title='Inshallah we will marry';
+
+      public function browse(string $slug =null): Response
+      {
+
+        // if($slug){
+        //   $title= 'test'.str_replace('-',' ',$slug);
+        // }
+        // else {
+        //   $title='Inshallah we will marry';
+        // }
+
+        $genre= $slug ? 'test'.str_replace('-',' ',$slug) : null;
+         return $this->render('viny/browser.html.twig',[ 'genre'=>$genre,]);
       }
-       return new Response('i love you habibi  '.$title);
-    }
 }
